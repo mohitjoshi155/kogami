@@ -9,6 +9,8 @@ RUN apt-get install -y aria2 git python3 python3-pip unzip
 RUN apt install -y make python build-essential
 RUN apt-get install unrar
 RUN curl https://rclone.org/install.sh | bash
+COPY gclone /usr/local/bin/gclone
+RUN chmod 0755 /usr/local/bin/gclone
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
 RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && mv ngrok /usr/local/bin/ngrok
 RUN wget https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz
