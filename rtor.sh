@@ -1,0 +1,1 @@
+ngrok http 3000 & npm start --prefix /root/.Flood & rtorrent -o scgi_port=127.0.0.1:5000
