@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt install -y curl wget unzip qbittorrent-nox megatools 
+RUN apt-get update && apt install -y curl wget unzip qbittorrent-nox megatools
+RUN apt install net-tools
+RUN apt-get install iptables-persistent -y
 RUN wget https://github.com/fedarovich/qbittorrent-cli/releases/download/v1.7.21116.1/qbt-linux-x64-1.7.21116.1.tar.gz
 RUN tar xf qbt-linux-x64-1.7.21116.1.tar.gz
 RUN apt-get install -y aria2 git python3 python3-pip unzip 
@@ -9,7 +11,8 @@ RUN apt-get install unrar
 RUN curl https://rclone.org/install.sh | bash
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
 RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && mv ngrok /usr/local/bin/ngrok
-RUN ngrok authtoken 1yourtokenyo
+RUN wget https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz
+RUN tar -zxvf nzbget-21.0-src.tar.gz
 RUN apt-get update && apt install nodejs -y
 RUN npm config set unsafe-perm true
 RUN apt install rtorrent screen -qq -y
